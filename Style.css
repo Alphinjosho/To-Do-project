@@ -63,7 +63,7 @@ input::placeholder {
 }
 .Box1{
   width: 500px;
-  height: 650px;
+  max-height: 650px;
   background-color: beige;
   color: rgb(0, 0, 0);
   border-radius: 6px;
@@ -71,18 +71,23 @@ input::placeholder {
   margin-left: 50px;
   margin-top: 60px;
   transition: transform .2s;
+  overflow-y:auto;
 }
+
 .Box1:hover{
   transform: scale(1.05);
 }
   #Tasks div{
     background-color: #fffffff3;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     min-height: 80px; 
     margin-left: 50px;
     margin-top: 40px;
     box-shadow: 0 2px 4px rgb(10, 10, 10); 
     border-radius: 6px;
+    overflow-wrap: break-word; /* Prevent text from overflowing */
+
    }
   #task1{
       margin-top: 15px;
