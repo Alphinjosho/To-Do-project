@@ -87,25 +87,14 @@ input::placeholder {
     box-shadow: 0 2px 4px rgb(10, 10, 10); 
     border-radius: 6px;
     overflow-wrap: break-word; /* Prevent text from overflowing */
-
    }
-  #task1{
-      margin-top: 15px;
-      margin-left: 10px;
-  }
   .options{
-      margin-right: 10px;
+      margin-right: 100px;
       display: flex;
       gap: 25px ;
       cursor: pointer;
       padding-left: 300px;
-  }
-
-  #task2{
-    margin-top: 18px;
-    margin-left: 10px;
-}
-
+    }
   .Box2{
     width: 500px;
     height: 650px;
