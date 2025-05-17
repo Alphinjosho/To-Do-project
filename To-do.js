@@ -26,6 +26,7 @@ let inputValue = add.value;
 
      let checkbox=document.createElement("input");
      checkbox.type="checkbox";
+     checkbox.addEventListener("click",completeTask)
 
      let label= document.createElement("label");
      label.textContent= inputValue
@@ -39,6 +40,7 @@ let inputValue = add.value;
 
      let deleteIcon = document.createElement("i");
      deleteIcon.className ="fa-solid fa-trash";
+     deleteIcon.addEventListener("click",DeleteTask)
 
       div.appendChild(checkbox);
       div.appendChild(label);
@@ -48,8 +50,7 @@ let inputValue = add.value;
       
     document.getElementById("Tasks").appendChild(div);
     document.getElementById("add").value = "";
-       }
-     
+  }
  } 
   // Task Edit 
  function editTask(e){
@@ -61,4 +62,19 @@ let inputValue = add.value;
  }
 
  // Task delete 
- 
+  function DeleteTask (e){
+    let parentElement = e.target.parentElement.parentElement;
+    parentElement.remove()
+  }
+
+// if Task complete Remove Task from Unfished Task
+     function completeTask(e){
+     let parentElement = e.target.parentElement;
+    parentElement.remove()
+     }
+//  Add to finshed task
+  function finshedTask(){
+     let div=document.createElement("div");
+
+     document.getElementById("ResultBoxs").appendChild(div);
+  }
