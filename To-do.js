@@ -2,6 +2,12 @@
     let error= document.getElementById("Perror")
     let taskbeingEdited=null;
 
+//for local storage 
+let unfinishedTask =[]
+let taskFinished =[]
+ 
+ 
+// for validation 
    let formValidation=()=>{
      if (add.value.trim()===""){
      error.style.display="block"
@@ -42,14 +48,18 @@ let inputValue = add.value;
      deleteIcon.className ="fa-solid fa-trash";
      deleteIcon.addEventListener("click",DeleteTask)
 
+    
+
       div.appendChild(checkbox);
       div.appendChild(label);
       span.appendChild(editIcon);
       span.appendChild(deleteIcon);
       div.appendChild(span);
-      
     document.getElementById("Tasks").appendChild(div);
     document.getElementById("add").value = "";
+     unfinishedTask.push(inputValue);
+     localStorage.setItem("unfinished", JSON.stringify(unfinishedTask));
+
   }
  } 
   // Task Edit 
@@ -70,11 +80,19 @@ let inputValue = add.value;
 // if Task complete Remove Task from Unfished Task
      function completeTask(e){
      let parentElement = e.target.parentElement;
-    parentElement.remove()
+     let label = parentElement.querySelector("label")
+     let taskText = label.textContent
+
+     parentElement.remove()
+    unfinishedTask = unfinishedTask.filter(task => task !== taskText);
+
+       finshedTask(taskText);
      }
 //  Add to finshed task
-  function finshedTask(){
+  function finshedTask(text){
      let div=document.createElement("div");
-
-     document.getElementById("ResultBoxs").appendChild(div);
+      div.textContent=text;
+      document.getElementById("ResultBoxs").appendChild(div) 
+   taskFinished.push(text);
+   localStorage.setItem("finished", JSON.stringify(taskFinished));
   }

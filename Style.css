@@ -124,13 +124,14 @@ input::placeholder {
     margin-left: 50px;
     margin-top: 60px;
     transition: transform .2s;
+    overflow-y:auto;
   }
   .Box3:hover{
     transform: scale(1.05);
   }
-  #ResultBoxs{
+  #ResultBoxs div{
     background-color: #fffffff3;
-    width: 400px;
+    max-width: 400px;
     min-height: 80px; 
     margin-left: 50px;
     margin-top: 40px;
