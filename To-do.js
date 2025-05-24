@@ -2,32 +2,54 @@
     let error= document.getElementById("Perror")
     let taskbeingEdited=null;
 
-//for local storage 
+    //for local storage 
 let unfinishedTask =[]
-let taskFinished =[]
- 
+
+window.onload = function(){
+unfinishedTask = JSON.parse(localStorage.getItem("unfinished")) || [];
+ loadunfinishedTask();
+};
  
 // for validation 
    let formValidation=()=>{
      if (add.value.trim()===""){
-     error.style.display="block"
+     error.style.display="block"  
    } else{
      error.style.display="none"
      addTask();
    }
   }
 
+  function loadunfinishedTask(){
+    unfinishedTask.forEach(taskText=>{
+      createTaskElement(taskText)
+    });
+  }
+
   //  Function for UNfinshied Tasks
   //  Editing of Task  is also include 
   
    function addTask (){
-let inputValue = add.value;
+    let inputValue = add.value;
        if (taskbeingEdited !==null){
-        taskbeingEdited.textContent=inputValue
-        taskbeingEdited=null;
-        document.getElementById("add").value="";
+           let oldText = taskbeingEdited.textContent;
+    let index = unfinishedTask.indexOf(oldText);
+    if (index !== -1) {
+      unfinishedTask[index] = inputValue; 
+    }
+      taskbeingEdited.textContent=inputValue
+      taskbeingEdited=null;
+       document.getElementById("add").value="";
+       localStorage.setItem("unfinished", JSON.stringify(unfinishedTask));
        }
        else{
+     createTaskElement(inputValue);
+    unfinishedTask.push(inputValue);
+    localStorage.setItem("unfinished", JSON.stringify(unfinishedTask)); 
+    add.value = "";
+       }
+      } 
+      function createTaskElement(taskText) { 
      let div=document.createElement("div");
 
      let checkbox=document.createElement("input");
@@ -35,7 +57,7 @@ let inputValue = add.value;
      checkbox.addEventListener("click",completeTask)
 
      let label= document.createElement("label");
-     label.textContent= inputValue
+     label.textContent= taskText
 
      let span = document.createElement("span");
      span.className = "options";
@@ -49,19 +71,17 @@ let inputValue = add.value;
      deleteIcon.addEventListener("click",DeleteTask)
 
     
-
-      div.appendChild(checkbox);
+     div.appendChild(checkbox);
       div.appendChild(label);
       span.appendChild(editIcon);
       span.appendChild(deleteIcon);
       div.appendChild(span);
-    document.getElementById("Tasks").appendChild(div);
-    document.getElementById("add").value = "";
-     unfinishedTask.push(inputValue);
-     localStorage.setItem("unfinished", JSON.stringify(unfinishedTask));
 
-  }
- } 
+    document.getElementById("Tasks").appendChild(div);
+
+    document.getElementById("add").value = "";
+     }
+  
   // Task Edit 
  function editTask(e){
        let parentElement = e.target.parentElement.parentElement;
@@ -74,7 +94,11 @@ let inputValue = add.value;
  // Task delete 
   function DeleteTask (e){
     let parentElement = e.target.parentElement.parentElement;
+   let label = parentElement.querySelector("label");
+    let taskText = label.textContent;
     parentElement.remove()
+    unfinishedTask = unfinishedTask.filter(task => task !== taskText);
+     localStorage.setItem("unfinished", JSON.stringify(unfinishedTask));
   }
 
 // if Task complete Remove Task from Unfished Task
@@ -83,16 +107,15 @@ let inputValue = add.value;
      let label = parentElement.querySelector("label")
      let taskText = label.textContent
 
-     parentElement.remove()
+     parentElement.remove();
     unfinishedTask = unfinishedTask.filter(task => task !== taskText);
-
+     localStorage.setItem("unfinished", JSON.stringify(unfinishedTask));
        finshedTask(taskText);
      }
-//  Add to finshed task
+//  Add to finshed task // set to local storage in last line but i not useing relode function  this finished task 
   function finshedTask(text){
      let div=document.createElement("div");
       div.textContent=text;
       document.getElementById("ResultBoxs").appendChild(div) 
-   taskFinished.push(text);
-   localStorage.setItem("finished", JSON.stringify(taskFinished));
+    taskFinished.push(text); 
   }
