@@ -3,36 +3,46 @@
     height: 100vh;
     background-color: black;
     color: white;
+    padding: 20px;
+    box-sizing: border-box;
   }
-  #addTask{
-    margin-left:180px;
-    margin-top: 50px;
+  #addTask{ 
+    margin: 20px auto;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
   }
   #Finished{
-    margin-left:150px;
-    margin-top: 50px;
+     margin: 20px auto;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
   }
   #UFinished{
-    margin-left:125px;
-    margin-top: 50px;
+     margin: 20px auto;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
   }
   .motiv{
-    margin-top: 20px;
-    margin-left: 27px;
+    margin-top: 10px;
+    text-align: center;
   }
   .motiv1{
-    margin-top: 20px;
-    margin-left: 95px;
+     margin-top: 10px;
+    text-align: center;
   }
   .motiv3{
-    margin-top: 20px;
-    margin-left: 90px;
+     margin-top: 10px;
+    text-align: center;
   }
   #add{
     height: 40px;
-    width:  300px;
-    margin-top: 90px;
-    margin-left: 45px;
+    width:  90%;
+    max-width: 350px;
+    margin: 30px auto 10px auto;
+    display:block;
+    padding: 10px;
     border-radius: 6px;
     box-shadow: 0 2px 4px rgb(10, 10, 10); 
     border-style: none;
@@ -43,12 +53,13 @@ input::placeholder {
   font-size: medium;
 }
 #display{
-   margin-left: 5px;
    height: 40px;
-   width:  100px;
+   width:  120px;
+   display: block;
+   margin: 10px auto;
    border-radius: 6px;
    box-shadow: 0 2px 4px rgb(67, 66, 66); 
-   border-style: none;
+   border: none;
    background-color: rgb(230, 175, 93);
    font-size: medium;
    font-weight: 300;
@@ -62,15 +73,16 @@ input::placeholder {
   transform: translateY(4px);
 }
 .Box1{
-  width: 500px;
-  max-height: 650px;
+  width: 100%;
+  max-width: 450px;
+  height: 650px;
   background-color: beige;
   color: rgb(0, 0, 0);
   border-radius: 6px;
   box-shadow: 0 4px 8px rgb(255, 252, 252);
-  margin-left: 50px;
-  margin-top: 60px;
+  margin-top: 40px;
   transition: transform .2s;
+  padding: 10px;
   overflow-y:auto;
 }
 
@@ -90,21 +102,24 @@ input::placeholder {
    }
   .options{
       margin-right: 100px;
+      justify-content: flex-end;
       display: flex;
       gap: 25px ;
       cursor: pointer;
       padding-left: 300px;
     }
   .Box2{
-    width: 500px;
-    height: 650px;
-    background-color: beige;
-    color: rgb(0, 0, 0);
-    border-radius: 6px;
-    box-shadow: 0 4px 8px rgb(255, 252, 252);
-    margin-left: 50px;
-    margin-top: 60px;
-    transition: transform .2s;
+   width: 100%;
+  max-width: 450px;
+  height: 650px;
+  background-color: beige;
+  color: rgb(0, 0, 0);
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgb(255, 252, 252);
+  margin-top: 40px;
+  transition: transform .2s;
+  padding: 10px;
+  overflow-y:auto
   }
   .Box2:hover{
     transform: scale(1.05);
@@ -115,16 +130,17 @@ input::placeholder {
    display: none;
  }
   .Box3{
-    width: 500px;
-    height: 650px;
-    background-color: beige;
-    color: rgb(0, 0, 0);
-    border-radius: 6px;
-    box-shadow: 0 4px 8px rgb(255, 252, 252);
-    margin-left: 50px;
-    margin-top: 60px;
-    transition: transform .2s;
-    overflow-y:auto;
+  width: 100%;
+  max-width: 450px;
+  height: 650px;
+  background-color: beige;
+  color: rgb(0, 0, 0);
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgb(255, 252, 252);
+  margin-top: 40px;
+  transition: transform .2s;
+  padding: 10px;
+  overflow-y:auto
   }
   .Box3:hover{
     transform: scale(1.05);
@@ -144,4 +160,21 @@ input::placeholder {
   
   .d-flex {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
   }
+  @media (max-width: 600px) {
+    #addTask, #Finiahed, #UFinished {
+      font-size: 1.2rem;
+    }
+     .Box1.Box2,.Box3 {
+      width: 90%;
+      height: auto;
+      max-height:none;
+     }
+      #add {
+        width: 100%;
+        max-width: none;
+      }
+}

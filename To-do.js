@@ -101,7 +101,7 @@ unfinishedTask = JSON.parse(localStorage.getItem("unfinished")) || [];
      localStorage.setItem("unfinished", JSON.stringify(unfinishedTask));
   }
 
-// if Task complete Remove Task from Unfished Task
+// if Task complete Remove Task from fished Task
      function completeTask(e){
      let parentElement = e.target.parentElement;
      let label = parentElement.querySelector("label")
