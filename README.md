@@ -17,4 +17,4 @@ A simple and clean To-Do List application built with HTML, CSS, and JavaScript.
 - JavaScript (Vanilla)
 
 ## 📂 How to Use (Live)
-https://to-do-project-git-main-alphin-josho-s-projects.vercel.app
+https://alphinjosho.github.io/To-Do-project/
