@@ -16,7 +16,5 @@ A simple and clean To-Do List application built with HTML, CSS, and JavaScript.
 - CSS3
 - JavaScript (Vanilla)
 
-## 📂 How to Use
-
-1. Clone the repository:
-   https://github.com/Alphinjosho/To-Do-project.git
+## 📂 How to Use (Live)
+https://alphinjosho.github.io/To-Do-project/
