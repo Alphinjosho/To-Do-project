@@ -14,7 +14,13 @@ unfinishedTask = JSON.parse(localStorage.getItem("unfinished")) || [];
    let formValidation=()=>{
      if (add.value.trim()===""){
      error.style.display="block"  
+      add.classList.add("input-highlight");
+        setTimeout(() => {
+            error.style.display = "none";
+            add.classList.remove("input-highlight");
+        }, 2000);
    } else{
+     add.style.backgroundColor = "#ffffff";
      error.style.display="none"
      addTask();
    }
@@ -63,8 +69,9 @@ unfinishedTask = JSON.parse(localStorage.getItem("unfinished")) || [];
      span.className = "options";
      
      let editIcon = document.createElement("i");
-     editIcon.className ="fa-solid fa-pen-to-square";
+     editIcon.className = "fa-solid fa-pen-to-square";
      editIcon.addEventListener("click", editTask);
+ 
 
      let deleteIcon = document.createElement("i");
      deleteIcon.className ="fa-solid fa-trash";
@@ -81,10 +88,23 @@ unfinishedTask = JSON.parse(localStorage.getItem("unfinished")) || [];
 
     document.getElementById("add").value = "";
      }
-  
+
+     // Add Edit icon Animation
+     function handleEditClick(){
+      const inputElement= document.getElementById("add");
+      inputElement.classList.add("input-highlight");
+     void inputElement.offsetWidth; // Trigger reflow to restart the animation
+      inputElement.classList.add("input-highlight");
+     setTimeout(() => {
+      inputElement.classList.remove("input-highlight");
+     },1000);
+
+    }
+
   // Task Edit 
  function editTask(e){
        let parentElement = e.target.parentElement.parentElement;
+       handleEditClick();
        let label = parentElement.querySelector("label");
        let currentText = label.textContent;
        document.getElementById("add").value=currentText

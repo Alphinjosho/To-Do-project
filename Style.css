@@ -1,25 +1,13 @@
 .container {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: black;
     color: white;
     padding: 20px;
     box-sizing: border-box;
   }
-  #addTask{ 
+  #addTask, #Finished, #UFinished{ 
     margin: 20px auto;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  #Finished{
-     margin: 20px auto;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  #UFinished{
-     margin: 20px auto;
     text-align: center;
     font-size: 1.5rem;
     font-weight: bold;
@@ -75,7 +63,7 @@ input::placeholder {
 .Box1{
   width: 100%;
   max-width: 450px;
-  height: 650px;
+  height: 620px;
   background-color: beige;
   color: rgb(0, 0, 0);
   border-radius: 6px;
@@ -94,7 +82,7 @@ input::placeholder {
     width: 100%;
     max-width: 400px;
     min-height: 80px; 
-    margin-left: 50px;
+    margin-left: 25px;
     margin-top: 40px;
     box-shadow: 0 2px 4px rgb(10, 10, 10); 
     border-radius: 6px;
@@ -111,7 +99,7 @@ input::placeholder {
   .Box2{
    width: 100%;
   max-width: 450px;
-  height: 650px;
+  height: 620px;
   background-color: beige;
   color: rgb(0, 0, 0);
   border-radius: 6px;
@@ -132,7 +120,7 @@ input::placeholder {
   .Box3{
   width: 100%;
   max-width: 450px;
-  height: 650px;
+  height: 620px;
   background-color: beige;
   color: rgb(0, 0, 0);
   border-radius: 6px;
@@ -149,10 +137,11 @@ input::placeholder {
     background-color: #fffffff3;
     max-width: 400px;
     min-height: 80px; 
-    margin-left: 50px;
+    margin-left: 25px;
     margin-top: 40px;
     box-shadow: 0 2px 4px rgb(10, 10, 10); 
     border-radius: 6px;
+    overflow-wrap: break-word;
   }
   body {
     margin: 0!important;
@@ -177,4 +166,11 @@ input::placeholder {
         width: 100%;
         max-width: none;
       }
+}
+.input-highlight {
+    background-color: rgba(230, 175, 93, 0.2);
+    border: 2px solid rgb(228, 154, 42);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
